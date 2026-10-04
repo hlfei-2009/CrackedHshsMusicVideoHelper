@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="202610"
+    android:versionName="1.5.5-removed ads and supported landscape display, dark theme-hlfei cracked-1"
+    android:compileSdkVersion="29"
+    android:compileSdkVersionCodename="10"
+    package="com.lqw.musciextract"
+    platformBuildVersionCode="29"
+    platformBuildVersionName="10">
+    
+    <!-- 最低 SDK 为 Android 5，目标 SDK 为 Android 10 -->
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="29" />
+        
+    <!-- 修改或删除您共享存储空间中的内容，仅用于保存此应用处理好的文件 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <!-- 防止手机休眠，仅用于提升此应用处理文件的稳定性 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+    <!-- 读取您共享存储空间中的内容，仅用于选择、预览文件 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    
+    <!-- 拥有完全的网络访问权限，仅用于“反馈问题进展”页 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- 查看网络连接，仅用于“反馈问题进展”页 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <application
+        android:theme="@style/AppThemeWelcome"
+        android:label="@string/app_name"
+        android:icon="@mipmap/about_logo"
+        android:name="com.lqw.musicextract.MainApplication"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:appCategory="productivity"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:requestLegacyExternalStorage="true">
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.34" />
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+            
+        <!-- 主界面 -->
+        <activity
+            android:name="com.lqw.musicextract.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- 开屏页 -->
+        <activity
+            android:name="com.lqw.musicextract.activity.LauncherActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden">
+            
+            <!-- 在桌面上显示此应用，允许直接打开 -->
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.lqw.musicextract.activity.EditDetailActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+            
+        <!-- “使用问题反馈”页 -->
+        <activity
+            android:name="com.lqw.musicextract.activity.FeedbackActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- “反馈问题进展”页 -->
+        <activity
+            android:name="com.lqw.musicextract.web.WebviewActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- “设置”页 -->
+        <activity
+            android:name="com.lqw.musicextract.activity.SettingActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|navigation|keyboardHidden" />
+            
+        <!-- “关于”页 -->
+        <activity
+            android:name="com.lqw.musicextract.activity.AboutActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- “应用更新日志”页 -->
+        <activity
+            android:name="com.lqw.musicextract.activity.UpdateListActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- 《用户协议》《隐私政策》和《免责声明》页 -->
+        <activity
+            android:name="com.lqw.musicextract.activity.PrivacyActivity"
+            android:configChanges="layoutDirection|screenSize|orientation|navigation|keyboardHidden" />
+            
+        <!-- “动图”页 -->
+        <activity
+            android:name="com.lqw.musicextract.activity.CreatedImageActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- 应用开屏的权限请求页，当此应用的 存储空间 权限被拒绝后显示此页用于请求权限 -->
+        <activity
+            android:theme="@style/AppTheme"
+            android:name="com.lqw.musicextract.perm.PermActivity"
+            android:launchMode="singleTask" />
+        <provider
+            android:name="com.lqw.musicextract.GenericFileProvider"
+            android:authorities="com.lqw.musciextract.my.package.name.provider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        
+        <!-- “良心应用推荐”页 -->
+        <activity
+            android:name="com.lqw.apprecommend.AppRecommendActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- “图片选择”页 -->
+        <activity
+            android:theme="@style/vw_FilePickerTheme"
+            android:name="com.vincent.filepicker.activity.ImagePickActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- “视频选择”页 -->
+        <activity
+            android:theme="@style/vw_FilePickerTheme"
+            android:name="com.vincent.filepicker.activity.VideoPickActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- “音频选择”页 -->
+        <activity
+            android:theme="@style/vw_FilePickerTheme"
+            android:name="com.vincent.filepicker.activity.AudioPickActivity"
+            android:configChanges="layoutDirection|smallestScreenSize|screenSize|screenLayout|orientation|navigation|keyboardHidden" />
+            
+        <!-- 仅用于打开设备上的 DocumentsUI (文件) 应用 -->
+        <activity
+            android:theme="@style/nl_MainActivityTheme"
+            android:name="nl.marc_apps.files.MainActivity" />
+            
+        <!-- 无法打开 DocumentsUI (文件) 应用时显示错误信息 -->
+        <activity
+            android:theme="@style/ErrorActivityTheme"
+            android:name="nl.marc_apps.files.ErrorActivity" />
+            
+        <!-- 无法打开系统声音设置时显示错误信息 -->
+        <activity
+            android:theme="@style/ErrorActivityTheme"
+            android:name="com.lqw.musicextract.activity.StartSoundSettingsFailedErrorActivity" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.lqw.musciextract.provider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <activity
+            android:theme="@style/EasyPermissions.Transparent"
+            android:label=""
+            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" />
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+    </application>
+</manifest>
